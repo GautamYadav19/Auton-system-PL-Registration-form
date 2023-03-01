@@ -1,0 +1,131 @@
+<app-home></app-home>
+<div class="container mt-0" style="margin-bottom: 100px">
+  <div>
+    <img [src]="personalImage" class="img-fluid" alt="..." />
+  </div>
+  <form class="row g-3" (ngSubmit)="onSubmit(formData)" #formData="ngForm">
+    <div class="col-12 col-lg-6 col-md-6">
+      <label class="form-label">First Name<span>*</span></label>
+      <input
+        class="form-control"
+        type="text"
+        name="Firstname"
+        ngModel
+        #name="ngModel"
+        required
+      />
+      <span class="help-block" *ngIf="!name.valid && name.touched"
+        >Please enter a your name!</span
+      >
+    </div>
+    <div class="col-12 col-lg-6 col-md-6">
+      <label class="form-label">Last Name<span>*</span></label>
+      <input
+        class="form-control"
+        type="text"
+        name="Lastname"
+        ngModel
+        required
+        #lastname="ngModel"
+      />
+      <span class="help-block" *ngIf="!lastname.valid && lastname.touched"
+        >Please enter a your last name</span
+      >
+    </div>
+    <div class="col-12 col-lg-6 col-md-6">
+      <label class="form-label">Email<span>*</span></label>
+      <input
+        class="form-control"
+        type="email"
+        maxlength="254"
+        name="email"
+        ngModel
+        email
+        required
+        #email="ngModel"
+      />
+      <span class="help-block" *ngIf="!email.valid && email.touched"
+        >Please enter a valid email!</span
+      >
+    </div>
+    <div class="col-12 col-lg-6 col-md-6">
+      <label class="form-label">Phone Number<span>*</span></label>
+      <input
+        class="form-control"
+        type="number"
+        name="Phonenumber"
+        [pattern]="mobNumberPattern"
+        ngModel
+        required
+        #phonenumber="ngModel"
+      />
+      <span class="help-block" *ngIf="!phonenumber.valid && phonenumber.touched"
+        >Please enter a valid phonenumber</span
+      >
+    </div>
+    <div class="col-12 col-lg-6 col-md-6">
+      <label class="form-label">Organization Name</label>
+      <input
+        class="form-control"
+        type="text"
+        name="OrganizationName"
+        maxlength="1000"
+        ngModel
+      />
+    </div>
+    <div class="col-12 col-lg-6 col-md-6">
+      <label class="form-label">Organization Address</label>
+      <input
+        class="form-control"
+        type="text"
+        name="OrganizationAddess"
+        maxlength="1000"
+        ngModel
+      />
+    </div>
+    <div class="col-12 col-lg-6 col-md-6">
+      <label class="form-label">Password<span>*</span></label>
+      <input
+        class="form-control"
+        type="password"
+        name="password"
+        minlength="16"
+        ngModel
+        required
+        #password="ngModel"
+      />
+      <span class="help-block" *ngIf="!password.valid && password.touched"
+        >Please enter a your password</span
+      >
+    </div>
+    <div class="col-12 col-lg-6 col-md-6">
+      <label class="form-label"
+        >Organization established date<span>*</span></label
+      >
+      <input
+        class="form-control"
+        type="date"
+        name="OrganizationEstablishedDate"
+        required
+        ngModel
+        #date="ngModel"
+      />
+      <span class="help-block" *ngIf="!date.valid && date.touched"
+        >Please enter date</span
+      >
+    </div>
+    <div class="text-center edit-block mt-4">
+      <span>
+        <button
+          type="submit"
+          style="margin-right: 10px"
+          class="btn btn-primary"
+          [disabled]="formData.invalid"
+        >
+          Submit
+        </button>
+      </span>
+      <span><button type="reset" class="btn btn-secondary">Reset</button></span>
+    </div>
+  </form>
+</div>
