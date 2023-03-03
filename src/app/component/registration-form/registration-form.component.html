@@ -10,13 +10,15 @@
         class="form-control"
         type="text"
         name="Firstname"
+        minlength="50"
         ngModel
         #name="ngModel"
         required
       />
-      <span class="help-block" *ngIf="!name.valid && name.touched"
-        >Please enter a your name!</span
-      >
+
+      <span class="help-block" *ngIf="!name.valid && name.touched">
+        First name upto 50 character
+      </span>
     </div>
     <div class="col-12 col-lg-6 col-md-6">
       <label class="form-label">Last Name<span>*</span></label>
@@ -24,12 +26,13 @@
         class="form-control"
         type="text"
         name="Lastname"
+        minlength="50"
         ngModel
         required
         #lastname="ngModel"
       />
       <span class="help-block" *ngIf="!lastname.valid && lastname.touched"
-        >Please enter a your last name</span
+        >Last name upto 50 character</span
       >
     </div>
     <div class="col-12 col-lg-6 col-md-6">

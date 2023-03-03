@@ -13,6 +13,7 @@ export class RegistrationFormComponent implements OnInit {
   personalImage: string = 'assets/undraw_Personal_info_re_ur1n.png';
   onSubmit(data: any) {
     console.log('your Data', JSON.stringify(data.value));
+    data.reset();
   }
   ngOnInit(): void {}
 }
